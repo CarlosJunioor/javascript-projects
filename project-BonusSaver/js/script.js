@@ -1,25 +1,29 @@
-document.querySelector('#inputN').onclick = function(){
-    if(document.querySelector('#newtask input').value.length == 0){
-        alert("Please Enter a Task")
-    }
+const tempString = `
+</div>
+<ul class="task-box" id="taskBox">
+    <li>Test 1</li>
+    <li>Test 2</li>
+    <li>Test 3</li>
+    <li>Test 4</li>
+</ul>
+</div>`
 
-    else{
-        document.querySelector('#tasks').innerHTML += `
-            <div class="task">
-                <span id="taskname">
-                    ${document.querySelector('#newtask input').value}
-                </span>
-                <button class="delete">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-            </div>
-        `;
+const addString = `<br>add this string `
 
-        var current_tasks = document.querySelectorAll(".delete");
-        for(var i=0; i<current_tasks.length; i++){
-            current_tasks[i].onclick = function(){
-                this.parentNode.remove();
-            }
-        }
-    }
+function render(){
+    
+    console.log('[render]')
+    document.querySelector(".screen").innerHTML = tempString
+
 }
+
+function deleteTask (){
+    document.querySelector(".screen").innerHTML = ''
+}
+
+function writeTask (){
+
+
+    document.querySelector(".screen").innerHTML = addString
+}
+render();
